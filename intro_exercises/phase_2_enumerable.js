@@ -19,3 +19,11 @@ Array.prototype.myMap = function(callback) {
     // };
     return new_arr
 };
+
+Array.prototype.myReduce = function(callback, initialValue = this.shift()) {
+    let acc = initialValue;
+    for (let i = 0; i < this.length; i++) {
+        acc = callback(acc, this[i]);
+    }
+    return acc
+}
