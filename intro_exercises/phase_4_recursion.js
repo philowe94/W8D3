@@ -82,3 +82,30 @@ function bsearch(arr, target) {
         return left.length + bsearch(right, target);
     }
 }
+
+function merge(left, right) {
+
+    if (left.length == 0) {
+        return right
+    } else if (right.length == 0) {
+        return left
+    }
+    if (left[0] < right[0]) {
+        
+        return [left.shift()].concat(merge(left, right));
+    } else if (right[0] < left[0]) {
+        return [right.shift()].concat(merge(left, right));
+    }
+}
+
+function mergesort(arr) {
+    if (arr.length == 1) {
+        return arr
+    }
+    let len = arr.length;
+    let midpoint = Math.floor(len / 2);
+    let left = mergesort(arr.slice(0, midpoint));
+    let right = mergesort(arr.slice(midpoint, len));
+
+    return merge(left, right);
+}
