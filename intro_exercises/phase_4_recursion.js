@@ -109,3 +109,15 @@ function mergesort(arr) {
 
     return merge(left, right);
 }
+
+function subsets(arr) {
+    if (arr.length == 1) {
+        return [arr, []]
+    }
+    let prev_subsets = subsets(arr.slice(0, arr.length -1));
+    let next_subsets = prev_subsets.map(x => x.concat(arr[arr.length - 1]));
+    return prev_subsets.concat(next_subsets)
+}
+
+// [1] => [[], [1]]
+// [1, 2] => [[], [1], [2], [1, 2]]
