@@ -19,3 +19,20 @@ Array.prototype.twoSum = function() {
   }
   return null;
 }
+
+Array.prototype.transpose = function() {
+  let new_arr = []
+  // [[ 1 2 3] 
+  //  [ 4 5 6]]
+
+  // [[1 4] 
+  //  [2 5] 
+  //  [3 6]]  
+  for (i = 0; i < this[0].length; i++) {
+    new_arr[i] = []
+    for (y = 0; y < this.length; y++) {
+      new_arr[i].push(this[y][i])
+    }
+  }
+  return new_arr
+}
